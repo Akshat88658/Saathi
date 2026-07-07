@@ -80,13 +80,13 @@ const Hero = () => {
 
           {/* Heading */}
           <h1 className="animate-fade-in-up delay-100" style={{ marginBottom: '1.5rem', textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
-            When no one is available,{' '}
+            When everywhere is like nope,{' '}
             <br />
             <span style={{
               background: 'linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark))',
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             }}>
-              Saathi is.
+              Saathi is your only hope.
             </span>
           </h1>
 

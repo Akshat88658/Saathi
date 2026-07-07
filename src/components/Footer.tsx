@@ -35,7 +35,7 @@ const Footer = () => {
               color: 'var(--text-muted)', fontSize: '0.9rem',
               lineHeight: 1.7, marginBottom: '1.5rem',
             }}>
-              When no one is available, Saathi is. Your hyperlocal platform for trusted everyday helpers.
+              When everywhere is like nope, Saathi is your only hope. Your hyperlocal platform for trusted everyday helpers.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem' }}>
               {[Globe, Mail, MessageCircle, Share2].map((Icon, i) => (
