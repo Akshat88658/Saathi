@@ -79,12 +79,18 @@ const Hero = () => {
           </div>
 
           {/* Heading */}
-          <h1 className="animate-fade-in-up delay-100" style={{ marginBottom: '1.5rem', textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
+          <h1 className="animate-fade-in-up delay-100" style={{ 
+            marginBottom: '1.5rem', 
+            textShadow: '0 2px 20px rgba(0,0,0,0.5)',
+            fontSize: 'clamp(2rem, 5.5vw, 4rem)',
+            lineHeight: '1.2'
+          }}>
             When everywhere is like nope,{' '}
-            <br />
+            <br style={{ display: 'block' }} />
             <span style={{
               background: 'linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark))',
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+              display: 'inline-block'
             }}>
               Saathi is your only hope.
             </span>
