@@ -11,7 +11,7 @@ const testimonials = [
   {
     name: 'David Chen',
     role: 'Small Business Owner',
-    text: 'I needed a last-minute parcel delivery across town and Saathi matched me with someone in under 5 minutes. This is the future of local services.',
+    text: 'I needed a last-minute pick up and dropping facility across town and Saathi matched me with someone in under 5 minutes. This is the future of local services.',
     rating: 5,
     initial: 'D',
   },

@@ -1,12 +1,12 @@
-import { ShoppingBag, Dog, UserCheck, Pill, Wrench, Package, ArrowRight } from 'lucide-react';
+import { ShoppingBag, Dog, UserCheck, Pill, Baby, Car, ArrowRight } from 'lucide-react';
 
 const services = [
   { id: 1, title: 'Grocery Shopping', icon: ShoppingBag, desc: 'Fresh groceries picked and delivered to your doorstep by a trusted local.' },
   { id: 2, title: 'Dog Walking', icon: Dog, desc: 'Professional and caring walks for your furry friends, rain or shine.' },
   { id: 3, title: 'Elderly Care', icon: UserCheck, desc: 'Compassionate companionship and daily assistance for your loved ones.' },
   { id: 4, title: 'Medicine Pickup', icon: Pill, desc: 'Timely prescription pickups from your nearest pharmacy, delivered safely.' },
-  { id: 5, title: 'Plumber / Electrician', icon: Wrench, desc: 'Quick, reliable fixes for all your household repair needs.' },
-  { id: 6, title: 'Parcel Delivery', icon: Package, desc: 'Secure and swift local courier services across your city.' },
+  { id: 5, title: 'Babysitter', icon: Baby, desc: 'Experienced and caring babysitters for your children.' },
+  { id: 6, title: 'Pick up and dropping facility', icon: Car, desc: 'Safe, punctual, and comfortable transportation services across the city.' },
 ];
 
 const Services = () => {
