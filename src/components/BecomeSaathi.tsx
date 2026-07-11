@@ -1,6 +1,10 @@
 import { ArrowRight } from 'lucide-react';
 
-const BecomeSaathi = () => {
+interface BecomeSaathiProps {
+  onApplyClick: () => void;
+}
+
+const BecomeSaathi = ({ onApplyClick }: BecomeSaathiProps) => {
   return (
     <section id="become-saathi" style={{
       padding: '6rem 0', position: 'relative', overflow: 'hidden',
@@ -48,7 +52,11 @@ const BecomeSaathi = () => {
             schedule, and become part of a growing community.
           </p>
 
-          <button className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1rem' }}>
+          <button 
+            onClick={onApplyClick}
+            className="btn btn-primary" 
+            style={{ padding: '1rem 2.5rem', fontSize: '1rem' }}
+          >
             Apply Now <ArrowRight size={18} style={{ marginLeft: 4 }} />
           </button>
 

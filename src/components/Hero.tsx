@@ -1,6 +1,11 @@
 import { ArrowRight, ShieldCheck, Clock, MapPin } from 'lucide-react';
 
-const Hero = () => {
+interface HeroProps {
+  onBookClick: () => void;
+  onApplyClick: () => void;
+}
+
+const Hero = ({ onBookClick, onApplyClick }: HeroProps) => {
   return (
     <section style={{
       position: 'relative', minHeight: '100vh',
@@ -112,13 +117,21 @@ const Hero = () => {
             display: 'flex', flexWrap: 'wrap', justifyContent: 'center',
             gap: '1rem', marginBottom: '4rem',
           }}>
-            <button className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1rem' }}>
+            <button 
+              onClick={onBookClick}
+              className="btn btn-primary" 
+              style={{ padding: '1rem 2.5rem', fontSize: '1rem' }}
+            >
               Book a Helper Now <ArrowRight size={18} style={{ marginLeft: 4 }} />
             </button>
-            <button className="btn btn-outline" style={{
-              padding: '1rem 2.5rem', fontSize: '1rem',
-              backdropFilter: 'blur(10px)',
-            }}>
+            <button 
+              onClick={onApplyClick}
+              className="btn btn-outline" 
+              style={{
+                padding: '1rem 2.5rem', fontSize: '1rem',
+                backdropFilter: 'blur(10px)',
+              }}
+            >
               Become a Saathi
             </button>
           </div>

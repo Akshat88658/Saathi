@@ -1,15 +1,19 @@
 import { ShoppingBag, Dog, UserCheck, Pill, Baby, Car, ArrowRight } from 'lucide-react';
 
 const services = [
-  { id: 1, title: 'Grocery Shopping', icon: ShoppingBag, desc: 'Fresh groceries picked and delivered to your doorstep by a trusted local.' },
-  { id: 2, title: 'Dog Walking', icon: Dog, desc: 'Professional and caring walks for your furry friends, rain or shine.' },
-  { id: 3, title: 'Elderly Care', icon: UserCheck, desc: 'Compassionate companionship and daily assistance for your loved ones.' },
-  { id: 4, title: 'Medicine Pickup', icon: Pill, desc: 'Timely prescription pickups from your nearest pharmacy, delivered safely.' },
-  { id: 5, title: 'Babysitter', icon: Baby, desc: 'Experienced and caring babysitters for your children.' },
-  { id: 6, title: 'Pick up and dropping facility', icon: Car, desc: 'Safe, punctual, and comfortable transportation services across the city.' },
+  { id: 1, title: 'Grocery Shopping', icon: ShoppingBag, desc: 'Fresh groceries picked and delivered to your doorstep by a trusted local.', price: '₹150 / hr' },
+  { id: 2, title: 'Dog Walking', icon: Dog, desc: 'Professional and caring walks for your furry friends, rain or shine.', price: '₹200 / hr' },
+  { id: 3, title: 'Elderly Care', icon: UserCheck, desc: 'Compassionate companionship and daily assistance for your loved ones.', price: '₹300 / hr' },
+  { id: 4, title: 'Medicine Pickup', icon: Pill, desc: 'Timely prescription pickups from your nearest pharmacy, delivered safely.', price: '₹100 flat' },
+  { id: 5, title: 'Babysitter', icon: Baby, desc: 'Experienced and caring babysitters for your children.', price: '₹250 / hr' },
+  { id: 6, title: 'Pick up and dropping facility', icon: Car, desc: 'Safe, punctual, and comfortable transportation services across the city.', price: '₹15 / km' },
 ];
 
-const Services = () => {
+interface ServicesProps {
+  onBookClick: () => void;
+}
+
+const Services = ({ onBookClick }: ServicesProps) => {
   return (
     <section id="services" className="section" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
@@ -48,18 +52,30 @@ const Services = () => {
                 }}>
                   <Icon size={26} />
                 </div>
-                <h3 style={{ marginBottom: '0.75rem', fontWeight: 600 }}>{service.title}</h3>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', gap: '0.5rem' }}>
+                  <h3 style={{ fontWeight: 600 }}>{service.title}</h3>
+                  <span style={{
+                    fontSize: '0.75rem', padding: '0.2rem 0.6rem',
+                    borderRadius: 'var(--radius-full)', border: '1px solid var(--border-gold)',
+                    background: 'rgba(200, 165, 90, 0.1)', color: 'var(--gold-light)', fontWeight: 600,
+                    whiteSpace: 'nowrap'
+                  }}>
+                    {service.price}
+                  </span>
+                </div>
                 <p style={{ color: 'var(--text-grey)', fontSize: '0.95rem', lineHeight: 1.6, flex: 1 }}>
                   {service.desc}
                 </p>
-                <button style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                  color: 'var(--gold)', fontWeight: 600, fontSize: '0.9rem',
-                  marginTop: '1.5rem', transition: 'gap 0.3s',
-                  background: 'none', border: 'none', cursor: 'pointer', padding: 0,
-                }}
-                onMouseEnter={e => (e.currentTarget.style.gap = '0.75rem')}
-                onMouseLeave={e => (e.currentTarget.style.gap = '0.5rem')}
+                <button 
+                  onClick={onBookClick}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                    color: 'var(--gold)', fontWeight: 600, fontSize: '0.9rem',
+                    marginTop: '1.5rem', transition: 'gap 0.3s',
+                    background: 'none', border: 'none', cursor: 'pointer', padding: 0,
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.gap = '0.75rem')}
+                  onMouseLeave={e => (e.currentTarget.style.gap = '0.5rem')}
                 >
                   Book Now <ArrowRight size={16} />
                 </button>
