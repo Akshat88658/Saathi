@@ -165,6 +165,15 @@ app.get('/api/stats', (_req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`✅ Saathi backend running on http://localhost:${PORT}`);
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`❌ Port ${PORT} is already in use. Stop the other process and try again.`);
+  } else {
+    console.error('Server error:', err.message);
+  }
+  process.exit(1);
 });
