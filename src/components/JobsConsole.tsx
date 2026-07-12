@@ -21,7 +21,7 @@ interface JobsConsoleProps {
   showToast: (message: string, type: 'success' | 'error') => void;
 }
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API = import.meta.env.VITE_API_URL || '';
 
 const PRICE_MAP: Record<string, string> = {
   'Companionship': '₹200 / hour',

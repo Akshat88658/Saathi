@@ -12,7 +12,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "server": "node server/server.cjs",
-    "start": "concurrently --kill-others-on-fail \"node server/server.cjs\" \"npm run dev\""
+    "start": "concurrently --kill-others-on-fail \"node server/server.cjs\" \"npm run dev\"",
+    "render-start": "node server/server.cjs"
   },
   "dependencies": {
     "cors": "^2.8.6",

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { MapPin, Calendar, Star, IndianRupee, RefreshCw, Search, CheckCircle, Clock, User, Phone } from 'lucide-react';
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API = import.meta.env.VITE_API_URL || '';
 
 const SERVICE_TYPES = [
   'Companionship',

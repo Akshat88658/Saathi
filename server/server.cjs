@@ -1,5 +1,6 @@
 const express = require('express');
 const cors    = require('cors');
+const path    = require('path');
 const db      = require('./db.cjs');
 
 const app  = express();
@@ -7,6 +8,10 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
+// ─── Serve built frontend (production / Render) ───────────────────────────────
+const distPath = path.join(__dirname, '../dist');
+app.use(express.static(distPath));
 
 // ─── Health ──────────────────────────────────────────────────────────────────
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }));
@@ -163,6 +168,11 @@ app.get('/api/stats', (_req, res) => {
     totalSaathis:  saathis.length,
     completedJobs: completed.length,
   });
+});
+
+// ─── SPA catch-all (must be after all API routes) ────────────────────────────
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 const server = app.listen(PORT, () => {
