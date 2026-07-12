@@ -12,7 +12,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "server": "node server/server.cjs",
-    "start": "concurrently \"node server/server.cjs\" \"npm run dev\""
+    "start": "concurrently \"node server/server.cjs\" \"npm run dev\"",
+    "postinstall": "npm rebuild sqlite3 --build-from-source"
   },
   "dependencies": {
     "cors": "^2.8.6",
