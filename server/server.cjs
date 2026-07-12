@@ -171,7 +171,7 @@ app.get('/api/stats', (_req, res) => {
 });
 
 // ─── SPA catch-all (must be after all API routes) ────────────────────────────
-app.get('*', (_req, res) => {
+app.get(/.*/, (_req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
