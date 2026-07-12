@@ -138,7 +138,9 @@ app.get('/api/bookings/saathi/:phone', (req, res) => {
 
 // Client creates a booking
 app.post('/api/bookings', (req, res) => {
-  const { client_name, client_phone, service_type, location, date_time, details, extra_tip } = req.body;
+  const { service_type, location, date_time, details, extra_tip } = req.body;
+  const client_name = req.body.client_name || req.body.name;
+  const client_phone = req.body.client_phone || req.body.phone;
   if (!client_name || !client_phone || !service_type || !location || !date_time) {
     return res.status(400).json({ error: 'Missing required fields' });
   }

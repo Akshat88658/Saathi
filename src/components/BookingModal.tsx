@@ -40,10 +40,15 @@ const BookingModal = ({ isOpen, onClose, showToast }: BookingModalProps) => {
 
     try {
       const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const { name, phone, ...rest } = formData;
       const response = await fetch(`${API_BASE}/api/bookings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          client_name: name,
+          client_phone: phone,
+          ...rest,
+        }),
       });
 
       if (!response.ok) {
