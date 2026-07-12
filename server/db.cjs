@@ -1,68 +1,96 @@
-const sqlite3 = require('sqlite3').verbose();
+/**
+ * db.cjs — JSON file-based database (replaces sqlite3 to avoid native module issues)
+ * Data is stored in server/data.json and persisted synchronously on every write.
+ */
+
+const fs   = require('fs');
 const path = require('path');
 
-const dbPath = path.join(__dirname, 'saathi.db');
-const db = new sqlite3.Database(dbPath, (err) => {
-  if (err) {
-    console.error('Error connecting to database:', err.message);
-  } else {
-    console.log('Connected to Saathi SQLite database.');
-  }
-});
+const DATA_FILE = path.join(__dirname, 'data.json');
 
-db.serialize(() => {
-  // ── Bookings table ──────────────────────────────────────────────────────────
-  db.run(`
-    CREATE TABLE IF NOT EXISTS bookings (
-      id                   INTEGER PRIMARY KEY AUTOINCREMENT,
-      client_phone         TEXT NOT NULL,
-      client_name          TEXT NOT NULL,
-      service_type         TEXT NOT NULL,
-      location             TEXT NOT NULL,
-      date_time            TEXT NOT NULL,
-      details              TEXT,
-      extra_tip            INTEGER DEFAULT 0,
-      status               TEXT DEFAULT 'Pending',
-      assigned_helper_name  TEXT,
-      assigned_helper_phone TEXT,
-      created_at           DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-  `);
+// ── Default empty store ────────────────────────────────────────────────────────
+const DEFAULT_STORE = {
+  bookings:     [],
+  saathi_users: [],
+  client_users: [],
+  _seq: { bookings: 0, saathi_users: 0, client_users: 0 },
+};
 
-  // ── Saathi (helper) profiles ─────────────────────────────────────────────────
-  db.run(`
-    CREATE TABLE IF NOT EXISTS saathi_users (
-      id          INTEGER PRIMARY KEY AUTOINCREMENT,
-      name        TEXT NOT NULL,
-      phone       TEXT NOT NULL UNIQUE,
-      skills      TEXT NOT NULL,
-      hourly_rate INTEGER NOT NULL DEFAULT 150,
-      bio         TEXT,
-      rating      REAL DEFAULT 5.0,
-      created_at  DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-  `);
+// ── Load / save helpers ────────────────────────────────────────────────────────
+function load() {
+  try {
+    if (fs.existsSync(DATA_FILE)) {
+      return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+    }
+  } catch (_) {}
+  return JSON.parse(JSON.stringify(DEFAULT_STORE));
+}
 
-  // ── Client (user) profiles ───────────────────────────────────────────────────
-  db.run(`
-    CREATE TABLE IF NOT EXISTS client_users (
-      id         INTEGER PRIMARY KEY AUTOINCREMENT,
-      name       TEXT NOT NULL,
-      phone      TEXT NOT NULL UNIQUE,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-  `);
+function save(store) {
+  fs.writeFileSync(DATA_FILE, JSON.stringify(store, null, 2), 'utf8');
+}
 
-  // Silent migrations for existing databases
-  const silentRun = (sql) => db.run(sql, () => {});
-  silentRun('ALTER TABLE bookings ADD COLUMN client_phone TEXT');
-  silentRun('ALTER TABLE bookings ADD COLUMN client_name TEXT');
-  silentRun('ALTER TABLE bookings ADD COLUMN extra_tip INTEGER DEFAULT 0');
-  silentRun('ALTER TABLE bookings ADD COLUMN assigned_helper_name TEXT');
-  silentRun('ALTER TABLE bookings ADD COLUMN assigned_helper_phone TEXT');
-});
+// ── Initialise (create file if missing) ───────────────────────────────────────
+let store = load();
+// ensure _seq exists for older data files
+store._seq = store._seq || { bookings: 0, saathi_users: 0, client_users: 0 };
+// ensure all collections exist
+['bookings','saathi_users','client_users'].forEach(k => { store[k] = store[k] || []; });
+save(store);
+console.log('Connected to Saathi JSON database.');
 
-// Keep process alive (prevents SQLite from auto-closing the event loop)
-process.on('exit', () => db.close());
+// ── nextId ─────────────────────────────────────────────────────────────────────
+function nextId(table) {
+  store._seq[table] = (store._seq[table] || 0) + 1;
+  return store._seq[table];
+}
+
+// ── Public API (mirrors the subset of sqlite3 methods used in server.cjs) ─────
+
+const db = {
+  /** SELECT one row */
+  get(table, predicate) {
+    store = load();
+    return store[table].find(predicate) || null;
+  },
+
+  /** SELECT all rows */
+  all(table, predicate) {
+    store = load();
+    return predicate ? store[table].filter(predicate) : [...store[table]];
+  },
+
+  /** INSERT — returns the new row */
+  insert(table, row) {
+    store = load();
+    const newRow = { id: nextId(table), created_at: new Date().toISOString(), ...row };
+    store[table].push(newRow);
+    save(store);
+    return newRow;
+  },
+
+  /** UPDATE rows matching predicate with patch object — returns updated rows */
+  update(table, predicate, patch) {
+    store = load();
+    const updated = [];
+    store[table] = store[table].map(row => {
+      if (predicate(row)) {
+        const newRow = { ...row, ...patch };
+        updated.push(newRow);
+        return newRow;
+      }
+      return row;
+    });
+    save(store);
+    return updated;
+  },
+
+  /** DELETE rows matching predicate */
+  delete(table, predicate) {
+    store = load();
+    store[table] = store[table].filter(r => !predicate(r));
+    save(store);
+  },
+};
 
 module.exports = db;

@@ -1,0 +1,263 @@
+{
+  "bookings": [
+    {
+      "id": 1,
+      "created_at": "2026-07-01T07:30:00.000Z",
+      "client_name": "Meera Sharma",
+      "client_phone": "9811223344",
+      "service_type": "Elder Care assistance",
+      "location": "Rajouri Garden, Delhi",
+      "date_time": "2026-07-02T09:00",
+      "details": "Need someone to accompany my mother to her cardiology appointment and help with post-visit medication management.",
+      "extra_tip": 50,
+      "status": "Completed",
+      "assigned_helper_name": "Priya Nair",
+      "assigned_helper_phone": "9900112233"
+    },
+    {
+      "id": 2,
+      "created_at": "2026-07-03T10:15:00.000Z",
+      "client_name": "Ramesh Gupta",
+      "client_phone": "9823456789",
+      "service_type": "Grocery Shopping & Errands",
+      "location": "Lajpat Nagar, Delhi",
+      "date_time": "2026-07-04T11:00",
+      "details": "Weekly grocery run — list will be shared. Also need pharmacy pickup from Apollo near the market.",
+      "extra_tip": 30,
+      "status": "Completed",
+      "assigned_helper_name": "Arjun Mehta",
+      "assigned_helper_phone": "9870011223"
+    },
+    {
+      "id": 3,
+      "created_at": "2026-07-05T08:00:00.000Z",
+      "client_name": "Sunita Verma",
+      "client_phone": "9845671234",
+      "service_type": "Companionship",
+      "location": "Dwarka Sector 12, Delhi",
+      "date_time": "2026-07-06T15:00",
+      "details": "My elderly father is alone at home and gets anxious. Need a friendly companion for 3 hours in the evening.",
+      "extra_tip": 0,
+      "status": "Completed",
+      "assigned_helper_name": "Kavya Reddy",
+      "assigned_helper_phone": "9988776655"
+    },
+    {
+      "id": 4,
+      "created_at": "2026-07-07T13:00:00.000Z",
+      "client_name": "Arjun Kapoor",
+      "client_phone": "9876012345",
+      "service_type": "Local City Buddy / Guide",
+      "location": "Connaught Place, Delhi",
+      "date_time": "2026-07-08T10:30",
+      "details": "Visiting Delhi for the first time. Need someone to show me around CP, help with metro navigation, and suggest good local food spots.",
+      "extra_tip": 100,
+      "status": "Completed",
+      "assigned_helper_name": "Rahul Singh",
+      "assigned_helper_phone": "9812345670"
+    },
+    {
+      "id": 5,
+      "created_at": "2026-07-08T09:45:00.000Z",
+      "client_name": "Divya Menon",
+      "client_phone": "9934567890",
+      "service_type": "Personal Assistant tasks",
+      "location": "Noida Sector 18",
+      "date_time": "2026-07-09T14:00",
+      "details": "Need help scheduling appointments, making calls to service providers, and organising some paperwork for my mother-in-law.",
+      "extra_tip": 0,
+      "status": "Completed",
+      "assigned_helper_name": "Priya Nair",
+      "assigned_helper_phone": "9900112233"
+    },
+    {
+      "id": 6,
+      "created_at": "2026-07-09T11:30:00.000Z",
+      "client_name": "Vikram Nair",
+      "client_phone": "9867890123",
+      "service_type": "Elder Care assistance",
+      "location": "Rohini Sector 7, Delhi",
+      "date_time": "2026-07-10T08:00",
+      "details": "Dad has physio every morning. Need someone to help him get ready, accompany him to the clinic, and ensure he does his exercises.",
+      "extra_tip": 70,
+      "status": "Assigned",
+      "assigned_helper_name": "Arjun Mehta",
+      "assigned_helper_phone": "9870011223"
+    },
+    {
+      "id": 7,
+      "created_at": "2026-07-10T14:00:00.000Z",
+      "client_name": "Pooja Iyer",
+      "client_phone": "9890123456",
+      "service_type": "Grocery Shopping & Errands",
+      "location": "Vasant Kunj, Delhi",
+      "date_time": "2026-07-13T10:00",
+      "details": "Need someone to pick up groceries from Nature's Basket and also drop off a parcel at the nearby courier office.",
+      "extra_tip": 20,
+      "status": "Pending",
+      "assigned_helper_name": null,
+      "assigned_helper_phone": null
+    },
+    {
+      "id": 8,
+      "created_at": "2026-07-11T07:00:00.000Z",
+      "client_name": "Sanjay Bhatia",
+      "client_phone": "9901234567",
+      "service_type": "Companionship",
+      "location": "Saket, Delhi",
+      "date_time": "2026-07-14T16:00",
+      "details": "My wife recently had surgery and is recovering at home. She would really benefit from a cheerful companion to chat with and watch TV in the evenings.",
+      "extra_tip": 0,
+      "status": "Pending",
+      "assigned_helper_name": null,
+      "assigned_helper_phone": null
+    },
+    {
+      "id": 9,
+      "created_at": "2026-07-11T16:20:00.000Z",
+      "client_name": "Neha Agarwal",
+      "client_phone": "9912345678",
+      "service_type": "Personal Assistant tasks",
+      "location": "Gurgaon Sector 29",
+      "date_time": "2026-07-15T11:00",
+      "details": "Help needed to manage some government paperwork (Aadhaar update, bank form submission). My parents don't manage queues well.",
+      "extra_tip": 50,
+      "status": "Pending",
+      "assigned_helper_name": null,
+      "assigned_helper_phone": null
+    },
+    {
+      "id": 10,
+      "created_at": "2026-07-12T05:00:00.000Z",
+      "client_name": "Rajiv Khanna",
+      "client_phone": "9923456789",
+      "service_type": "Local City Buddy / Guide",
+      "location": "Old Delhi / Chandni Chowk",
+      "date_time": "2026-07-16T09:30",
+      "details": "Want to explore Old Delhi's heritage — Jama Masjid, Red Fort, Paranthe Wali Gali. Need an informed, energetic guide for the full day.",
+      "extra_tip": 150,
+      "status": "Pending",
+      "assigned_helper_name": null,
+      "assigned_helper_phone": null
+    }
+  ],
+  "saathi_users": [
+    {
+      "id": 1,
+      "created_at": "2026-06-20T08:00:00.000Z",
+      "name": "Priya Nair",
+      "phone": "9900112233",
+      "skills": "[\"Elder Care\",\"Personal Assistant\",\"Companionship\"]",
+      "hourly_rate": 300,
+      "bio": "Experienced caregiver with 4 years of senior care. Warm, patient, and bilingual (Hindi & English).",
+      "rating": 4.9
+    },
+    {
+      "id": 2,
+      "created_at": "2026-06-21T09:30:00.000Z",
+      "name": "Arjun Mehta",
+      "phone": "9870011223",
+      "skills": "[\"Grocery Shopping\",\"Elder Care\",\"Errands\"]",
+      "hourly_rate": 200,
+      "bio": "Reliable and punctual. Completed 60+ errands and care sessions in Delhi-NCR. Available 7 days a week.",
+      "rating": 4.8
+    },
+    {
+      "id": 3,
+      "created_at": "2026-06-22T11:00:00.000Z",
+      "name": "Kavya Reddy",
+      "phone": "9988776655",
+      "skills": "[\"Companionship\",\"Local Guide\",\"Personal Assistant\"]",
+      "hourly_rate": 200,
+      "bio": "Cheerful and empathetic. Love spending time with seniors and helping them stay active and engaged.",
+      "rating": 4.7
+    },
+    {
+      "id": 4,
+      "created_at": "2026-06-23T10:00:00.000Z",
+      "name": "Rahul Singh",
+      "phone": "9812345670",
+      "skills": "[\"Local Guide\",\"Grocery Shopping\",\"Companionship\"]",
+      "hourly_rate": 250,
+      "bio": "Born and raised in Delhi. Know every corner of the city. Love showing people around and making their experience special.",
+      "rating": 4.9
+    },
+    {
+      "id": 5,
+      "created_at": "2026-07-12T15:36:30.460Z",
+      "name": "Aaru",
+      "phone": "8865843228",
+      "skills": "[\"Local City Buddy / Guide\"]",
+      "hourly_rate": 200,
+      "bio": "",
+      "rating": 5
+    }
+  ],
+  "client_users": [
+    {
+      "id": 1,
+      "created_at": "2026-07-01T07:00:00.000Z",
+      "name": "Meera Sharma",
+      "phone": "9811223344"
+    },
+    {
+      "id": 2,
+      "created_at": "2026-07-03T10:00:00.000Z",
+      "name": "Ramesh Gupta",
+      "phone": "9823456789"
+    },
+    {
+      "id": 3,
+      "created_at": "2026-07-05T07:50:00.000Z",
+      "name": "Sunita Verma",
+      "phone": "9845671234"
+    },
+    {
+      "id": 4,
+      "created_at": "2026-07-07T12:55:00.000Z",
+      "name": "Arjun Kapoor",
+      "phone": "9876012345"
+    },
+    {
+      "id": 5,
+      "created_at": "2026-07-08T09:30:00.000Z",
+      "name": "Divya Menon",
+      "phone": "9934567890"
+    },
+    {
+      "id": 6,
+      "created_at": "2026-07-09T11:00:00.000Z",
+      "name": "Vikram Nair",
+      "phone": "9867890123"
+    },
+    {
+      "id": 7,
+      "created_at": "2026-07-10T13:45:00.000Z",
+      "name": "Pooja Iyer",
+      "phone": "9890123456"
+    },
+    {
+      "id": 8,
+      "created_at": "2026-07-11T06:50:00.000Z",
+      "name": "Sanjay Bhatia",
+      "phone": "9901234567"
+    },
+    {
+      "id": 9,
+      "created_at": "2026-07-11T16:10:00.000Z",
+      "name": "Neha Agarwal",
+      "phone": "9912345678"
+    },
+    {
+      "id": 10,
+      "created_at": "2026-07-12T04:50:00.000Z",
+      "name": "Rajiv Khanna",
+      "phone": "9923456789"
+    }
+  ],
+  "_seq": {
+    "bookings": 10,
+    "saathi_users": 5,
+    "client_users": 10
+  }
+}
