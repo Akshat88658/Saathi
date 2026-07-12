@@ -21,6 +21,8 @@ interface JobsConsoleProps {
   showToast: (message: string, type: 'success' | 'error') => void;
 }
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const PRICE_MAP: Record<string, string> = {
   'Companionship': '₹200 / hour',
   'Grocery Shopping & Errands': '₹150 / hour',
@@ -43,7 +45,7 @@ const JobsConsole = ({ onClose, showToast }: JobsConsoleProps) => {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/bookings');
+      const res = await fetch(`${API}/api/bookings`);
       if (!res.ok) throw new Error('Failed to fetch jobs');
       const data = await res.json();
       setBookings(data);
@@ -65,7 +67,7 @@ const JobsConsole = ({ onClose, showToast }: JobsConsoleProps) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+      const res = await fetch(`${API}/api/bookings/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -89,7 +91,7 @@ const JobsConsole = ({ onClose, showToast }: JobsConsoleProps) => {
 
   const handleCompleteJob = async (id: number) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+      const res = await fetch(`${API}/api/bookings/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: 'Completed' }),

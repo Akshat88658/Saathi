@@ -50,7 +50,29 @@ app.post('/api/saathis/register', (req, res) => {
 
     db.run(
       'INSERT INTO saathi_users (name, phone, skills, hourly_rate, bio) VALUES (?,?,?,?,?)',
-      [name, phone, JSON.stringify(skills), hourly_rate || 150, bio || ''],
+      [name, phone, typeof skills === 'string' ? JSON.stringify(skills.split(',').map(s => s.trim())) : JSON.stringify(skills), hourly_rate || 150, bio || ''],
+      function (err2) {
+        if (err2) return res.status(500).json({ error: err2.message });
+        db.get('SELECT * FROM saathi_users WHERE id = ?', [this.lastID], (_e, row) => {
+          res.json({ user: row });
+        });
+      }
+    );
+  });
+});
+
+// Alias for /api/helpers to support direct helper registration modal
+app.post('/api/helpers', (req, res) => {
+  const { name, phone, skills, hourly_rate, bio } = req.body;
+  if (!name || !phone || !skills) return res.status(400).json({ error: 'name, phone, skills required' });
+
+  db.get('SELECT id FROM saathi_users WHERE phone = ?', [phone], (err, existing) => {
+    if (err) return res.status(500).json({ error: err.message });
+    if (existing) return res.status(409).json({ error: 'Profile already exists.' });
+
+    db.run(
+      'INSERT INTO saathi_users (name, phone, skills, hourly_rate, bio) VALUES (?,?,?,?,?)',
+      [name, phone, typeof skills === 'string' ? JSON.stringify(skills.split(',').map(s => s.trim())) : JSON.stringify(skills), hourly_rate || 150, bio || ''],
       function (err2) {
         if (err2) return res.status(500).json({ error: err2.message });
         db.get('SELECT * FROM saathi_users WHERE id = ?', [this.lastID], (_e, row) => {
