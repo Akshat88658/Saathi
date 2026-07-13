@@ -60,9 +60,9 @@ const Navbar = ({ onBookClick, onJobsClick, onNavigate, onLoginClick, onLogout, 
           style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', cursor: 'pointer' }}
         >
           <img 
-            src="/favicon.svg" 
+            src="/logo.png" 
             alt="Saathi Emblem" 
-            style={{ width: 36, height: 36, filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.12))' }} 
+            style={{ width: 44, height: 44, objectFit: 'contain', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.18))' }} 
           />
           <span style={{
             fontSize: '1.45rem', 
