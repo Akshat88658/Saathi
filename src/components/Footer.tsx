@@ -18,18 +18,37 @@ const Footer = () => {
         }}>
           {/* Brand */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
-              <div style={{
-                width: 32, height: 32, borderRadius: '50%',
-                background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontWeight: 900, fontSize: '0.85rem', color: 'var(--bg-primary)',
-              }}>S</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
+              <img 
+                src="/favicon.svg" 
+                alt="Saathi Emblem" 
+                style={{ width: 32, height: 32, filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.12))' }} 
+              />
               <span style={{
-                fontSize: '1.3rem', fontWeight: 800,
-                background: 'linear-gradient(135deg, var(--gold-light), var(--gold))',
-                WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-              }}>Saathi</span>
+                fontSize: '1.35rem', 
+                fontWeight: 700, 
+                letterSpacing: '0.01em',
+                fontFamily: "'Playfair Display', 'Georgia', 'Times New Roman', serif",
+                background: 'linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark))',
+                WebkitBackgroundClip: 'text', 
+                WebkitTextFillColor: 'transparent',
+                position: 'relative',
+                paddingRight: '6px',
+              }}>
+                Saathi
+                {/* Small purple petal accent on top-right of the "i" */}
+                <span style={{
+                  position: 'absolute',
+                  top: '1px',
+                  right: '-4px',
+                  width: '7px',
+                  height: '7px',
+                  background: 'radial-gradient(circle at 30% 30%, #C084FC 0%, #8237FA 50%, #4B129E 100%)',
+                  borderRadius: '80% 0 80% 50%',
+                  transform: 'rotate(-15deg)',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+                }} />
+              </span>
             </div>
             <p style={{
               color: 'var(--text-muted)', fontSize: '0.9rem',

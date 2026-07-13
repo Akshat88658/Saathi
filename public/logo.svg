@@ -1,5 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="250 130 500 500" width="100%" height="100%" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%" fill="none">
   <defs>
+    <!-- Google Fonts import for Playfair Display -->
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap');
+      
+      .brand-text-base {
+        font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+        font-size: 130px;
+        font-weight: 700;
+        text-anchor: middle;
+      }
+    </style>
+
     <!-- Premium Metallic Gold Gradients -->
     <linearGradient id="gold-metallic" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F2E3C6" />
@@ -24,14 +36,14 @@
       <stop offset="100%" stop-color="#D4AF37" />
     </linearGradient>
 
-    <!-- Soft Cream Radial Gradient -->
+    <!-- Soft Cream Radial Gradient for Emblem Background -->
     <radialGradient id="cream-bg" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
       <stop offset="0%" stop-color="#FFFFFF" />
       <stop offset="60%" stop-color="#FAF8F0" />
       <stop offset="100%" stop-color="#F4EFE0" />
     </radialGradient>
 
-    <!-- Purple Flower Gradients -->
+    <!-- Purple Flower Gradients (from deep rich violet to glowing lavender-magenta) -->
     <radialGradient id="purple-petal-center" cx="50%" cy="80%" r="80%">
       <stop offset="0%" stop-color="#4B129E" />
       <stop offset="60%" stop-color="#8237FA" />
@@ -50,11 +62,17 @@
       <stop offset="100%" stop-color="#d8b4fe" />
     </linearGradient>
 
-    <filter id="emblem-shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#120c02" flood-opacity="0.18" />
+    <!-- Drop Shadows and Highlight Filters -->
+    <filter id="emblem-shadow" x="-20%" y="-20%" width="145%" height="145%">
+      <feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#120c02" flood-opacity="0.22" />
+    </filter>
+
+    <filter id="text-shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.25" />
     </filter>
   </defs>
 
+  <!-- BACKGROUND EMBLEM SECTION -->
   <g filter="url(#emblem-shadow)">
     <!-- Outer Beveled Golden Ring Border -->
     <circle cx="500" cy="380" r="230" stroke="url(#gold-dark)" stroke-width="4" fill="none" />
@@ -69,26 +87,67 @@
     <circle cx="500" cy="380" r="199" fill="url(#cream-bg)" />
   </g>
 
+  <!-- INNER ILLUSTRATION SECTION -->
   <!-- Thin Golden Stem (Filled rectangle to avoid SVG gradient stroke rendering bugs) -->
   <path d="M 497.5,285 L 502.5,285 L 502.5,435 L 497.5,435 Z" fill="url(#gold-metallic)" />
 
   <!-- Symmetrical Leaves -->
+  <!-- Left Leaf -->
   <path d="M 500,350 C 475,345 465,325 465,315 C 475,320 490,340 500,350 Z" fill="url(#gold-light)" />
+  <!-- Right Leaf -->
   <path d="M 500,365 C 525,360 535,340 535,330 C 525,335 510,355 500,365 Z" fill="url(#gold-light)" />
 
-  <!-- Golden Hands -->
-  <path d="M 345,435 C 340,490 395,530 455,510 C 475,502 490,480 495,462 C 482,468 468,470 455,468 C 435,468 412,455 408,435 C 405,446 392,460 378,464 C 368,466 358,460 345,435 Z" fill="url(#gold-metallic)" />
-  <path d="M 655,435 C 660,490 605,530 545,510 C 525,502 510,480 505,462 C 518,468 532,470 545,468 C 565,468 588,455 592,435 C 595,446 608,460 622,464 C 632,466 642,460 655,435 Z" fill="url(#gold-metallic)" />
+  <!-- Elegant Golden Hands (Cradling / Supporting) -->
+  <!-- Left Hand Path -->
+  <path d="M 345,435 
+           C 340,490 395,530 455,510 
+           C 475,502 490,480 495,462 
+           C 482,468 468,470 455,468 
+           C 435,468 412,455 408,435 
+           C 405,446 392,460 378,464 
+           C 368,466 358,460 345,435 Z" 
+        fill="url(#gold-metallic)" />
 
-  <!-- Purple Lotus Flower -->
+  <!-- Right Hand Path (Mirrored) -->
+  <path d="M 655,435 
+           C 660,490 605,530 545,510 
+           C 525,502 510,480 505,462 
+           C 518,468 532,470 545,468 
+           C 565,468 588,455 592,435 
+           C 595,446 608,460 622,464 
+           C 632,466 642,460 655,435 Z" 
+        fill="url(#gold-metallic)" />
+
+  <!-- Purple Lotus Flower (Above the hands) -->
   <g>
+    <!-- Outer Left Petal -->
     <path d="M 500,285 C 455,290 425,265 425,235 C 438,260 472,280 500,285 Z" fill="url(#purple-petal-side-left)" />
+    
+    <!-- Outer Right Petal -->
     <path d="M 500,285 C 545,290 575,265 575,235 C 562,260 528,280 500,285 Z" fill="url(#purple-petal-side-right)" />
+
+    <!-- Inner Left Petal -->
     <path d="M 500,285 C 470,278 450,250 455,210 C 462,240 485,270 500,285 Z" fill="url(#purple-petal-side-left)" />
+
+    <!-- Inner Right Petal -->
     <path d="M 500,285 C 530,278 550,250 545,210 C 538,240 515,270 500,285 Z" fill="url(#purple-petal-side-right)" />
+
+    <!-- Center Petal -->
     <path d="M 500,185 C 480,225 480,265 500,285 C 520,265 520,225 500,185 Z" fill="url(#purple-petal-center)" />
   </g>
 
-  <!-- Highlight Overlay -->
+  <!-- Ring Soft Highlight/Reflection -->
   <path d="M 310,270 C 380,200 620,200 690,270" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.25" fill="none" />
+
+  <!-- TYPOGRAPHY SECTION -->
+  <g filter="url(#text-shadow)">
+    <!-- 3D Emboss Dark Underlayer -->
+    <text x="502" y="803" fill="url(#gold-dark)" class="brand-text-base">Saathi</text>
+    <!-- Foreground Metallic Gold Text -->
+    <text x="500" y="800" fill="url(#gold-metallic)" class="brand-text-base">Saathi</text>
+  </g>
+
+  <!-- Small Purple Petal on top-right of the last letter 'i' -->
+  <!-- Calculated dot of 'i' in 'Saathi' is around x=675, y=700 (given x_center=500, font-size=130) -->
+  <path d="M 688,680 C 674,670 676,654 690,645 C 696,659 692,674 688,680 Z" fill="url(#purple-petal-center)" />
 </svg>

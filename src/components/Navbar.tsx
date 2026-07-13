@@ -57,19 +57,38 @@ const Navbar = ({ onBookClick, onJobsClick, onNavigate, onLoginClick, onLogout, 
         {/* Logo */}
         <button
           onClick={() => onNavigate('home')}
-          style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', cursor: 'pointer' }}
         >
-          <div style={{
-            width: 36, height: 36, borderRadius: '50%',
-            background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontWeight: 900, fontSize: '1rem', color: 'var(--bg-primary)',
-          }}>S</div>
+          <img 
+            src="/favicon.svg" 
+            alt="Saathi Emblem" 
+            style={{ width: 36, height: 36, filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.12))' }} 
+          />
           <span style={{
-            fontSize: '1.4rem', fontWeight: 800, letterSpacing: '-0.02em',
-            background: 'linear-gradient(135deg, var(--gold-light), var(--gold))',
-            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-          }}>Saathi</span>
+            fontSize: '1.45rem', 
+            fontWeight: 700, 
+            letterSpacing: '0.01em',
+            fontFamily: "'Playfair Display', 'Georgia', 'Times New Roman', serif",
+            background: 'linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark))',
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            position: 'relative',
+            paddingRight: '6px',
+          }}>
+            Saathi
+            {/* Small purple petal accent on top-right of the "i" */}
+            <span style={{
+              position: 'absolute',
+              top: '2px',
+              right: '-4px',
+              width: '8px',
+              height: '8px',
+              background: 'radial-gradient(circle at 30% 30%, #C084FC 0%, #8237FA 50%, #4B129E 100%)',
+              borderRadius: '80% 0 80% 50%',
+              transform: 'rotate(-15deg)',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+            }} />
+          </span>
         </button>
 
         {/* Desktop Nav */}
